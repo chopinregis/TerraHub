@@ -59,18 +59,19 @@ resource "azurerm_network_interface" "my_nic" {
 }
 
 resource "azurerm_linux_virtual_machine" "my_linux_vm" {
-  name                = "myLinuxVM"
+  for_each            = { for vm in local.vm_config : vm.name => vm }
+  name                = each.value.name
   resource_group_name = azurerm_resource_group.my_rg.name
   location            = azurerm_resource_group.my_rg.location
-  size                = "Standard_DS1_v2"
-  admin_username      = "adminuser"
+  size                = each.value.size
+  admin_username      = each.value.admin_username
   network_interface_ids = [
     azurerm_network_interface.my_nic.id,
   ]
 
   admin_ssh_key {
-    username   = "adminuser"
-    public_key = var.admin_ssh_key
+    username   = each.value.admin_username
+    public_key = each.value.ssh_key
   }
 
   os_disk {
