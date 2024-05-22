@@ -68,7 +68,7 @@ resource "azurerm_linux_virtual_machine" "my_linux_vm" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = file("${path.module}/configs//id_rsa.pub")
   }
 
   os_disk {
@@ -84,6 +84,8 @@ resource "azurerm_linux_virtual_machine" "my_linux_vm" {
   }
 }
 
+
+/*
 # Azurerm Key Vault to manage ssh public key
 
 data "azurerm_client_config" "current" {}
@@ -146,3 +148,5 @@ resource "azurerm_key_vault_key" "generated" {
     notify_before_expiry = "P29D"
   }
 }
+
+*/
