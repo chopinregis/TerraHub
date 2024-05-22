@@ -85,5 +85,6 @@ resource "azurerm_linux_virtual_machine" "my_linux_vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
+  custom_data = each.value.custom_data
 }
 
