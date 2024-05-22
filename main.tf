@@ -9,7 +9,12 @@ terraform{
 }
 
 provider "azurerm"{
-  features{}
+  features {
+    key_vault {
+      purge_soft_deleted_keys_on_destroy = true
+      recover_soft_deleted_keys          = true
+    }
+  }
   skip_provider_registration="true"
   
   subscription_id=var.subscription_id
@@ -80,15 +85,6 @@ resource "azurerm_linux_virtual_machine" "my_linux_vm" {
 }
 
 # Azurerm Key Vault to manage ssh public key
-
-provider "azurerm" {
-  features {
-    key_vault {
-      purge_soft_deleted_keys_on_destroy = true
-      recover_soft_deleted_keys          = true
-    }
-  }
-}
 
 data "azurerm_client_config" "current" {}
 
