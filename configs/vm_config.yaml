@@ -1,0 +1,5 @@
+vm_settings:
+  - name: "myLinuxVM"
+    size: "Standard_DS1_v2"
+    admin_username: "adminuser"
+    ssh_key: "ssh-rsa AAAAB3N..."
