@@ -71,7 +71,7 @@ resource "azurerm_linux_virtual_machine" "my_linux_vm" {
 
   admin_ssh_key {
     username   = each.value.admin_username
-    public_key = local.vm_config.ssh_key
+    public_key = each.value.ssh_key
   }
 
   os_disk {
@@ -85,6 +85,6 @@ resource "azurerm_linux_virtual_machine" "my_linux_vm" {
     sku       = "22_04-lts"
     version   = "latest"
   }
-  custom_data = base64decode(each.value.custom_data)
+  custom_data = filebase64("${path.module}/configs/install_apache.yaml")
 }
 
