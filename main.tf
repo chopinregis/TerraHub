@@ -28,6 +28,8 @@ resource "azurerm_resource_group" "my_rg" {
   location = "CanadaCentral"
 }
 
+# This current work progress works, so revert to this if basic linux configuration works well.
+
 # Resources for creating a linux virtual machine
 
 resource "azurerm_virtual_network" "my_vnet" {
