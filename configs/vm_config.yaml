@@ -3,7 +3,7 @@ vm_settings:
     size: "Standard_DS1_v2"
     admin_username: "adminuser"
     ssh_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDH6Fm3EO0yiYPi2u9l2O0dPMJxHNCVYx4bZoW92z4QzPQp/q8aRLtQoAefyP0+Kb4eMNB0RcjPZN7EEaA6z5h9o7VRFazqh9DswoQYcbIJS3Nwc5G0aRAZFoHQ2psG7inM2T7I6ml45SuXNtmsYnFeFheIMUOZOMFmJAntq2CFu3sYvHtaeGAj3n60FkV2hSbifpQVO9EL6tJ3OS5IXu0R84fLhBRXc1z+QOGFbvQLGFUa1FSoGPsUiJH7TNtsRUwIvHf+ilcVw88VF3RBzcQR9b1tXVzn5TH54vUzwgS3GX/icygsRfFaLtCHqgvya3ZvdTFP7995Ur+k4t/lSvK5yNvtmgcTivIjMZ6sP8ePSNLcIJIM3r9l5CED4pEf6Ot3L4b27NVA4lgQDhPKykiExgFASbyf2Hu9UUKwyB2XCOkTyhQF/neZdPISZo/9TB79gQzGu4+vKHRVxfyZd1y0KLcUIEYymn/LLghz7uMpQCJ8tU2EqfZAgHGL5KSdO68= regisndetene@gmail.com"
-    custom_data: "${filebase64("${path.module}/configs/install_apache.sh")}"
+
 
 
 
