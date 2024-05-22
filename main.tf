@@ -45,17 +45,17 @@ resource "azurerm_network_interface" "my_nic" {
   resource_group_name = azurerm_resource_group.my_rg.name
 
   ip_configuration {
-    name                          = "internal"
+    name                          = "myNicConfiguration"
     subnet_id                     = azurerm_subnet.my_subnet.id
     private_ip_address_allocation = "Dynamic"
   }
 }
 
-resource "azurerm_linux_virtual_machine" "example" {
-  name                = "example-machine"
+resource "azurerm_linux_virtual_machine" "my_linux_vm" {
+  name                = "myLinuxVM"
   resource_group_name = azurerm_resource_group.my_rg.name
   location            = azurerm_resource_group.my_rg.location
-  size                = "Standard_F2"
+  size                = "Standard_DS1_v2"
   admin_username      = "adminuser"
   network_interface_ids = [
     azurerm_network_interface.my_nic.id,
@@ -63,7 +63,7 @@ resource "azurerm_linux_virtual_machine" "example" {
 
   admin_ssh_key {
     username   = "adminuser"
-    public_key = file("~/.ssh/id_rsa.pub")
+    # public_key = file("~/.ssh/id_rsa.pub")
   }
 
   os_disk {
