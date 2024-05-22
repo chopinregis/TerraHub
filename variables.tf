@@ -21,6 +21,10 @@ variable "tenant_id" {
 //
 //
 
+variable "admin_ssh_key" {
+  description = "Public SSH key for VM access"
+  type        = string
+}
 
 
 
